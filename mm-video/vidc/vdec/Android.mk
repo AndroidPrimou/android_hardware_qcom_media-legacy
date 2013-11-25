@@ -68,6 +68,7 @@ ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),legacy)
 else
 	DISPLAY := display
 endif
+endif
 
 libmm-vdec-inc          := bionic/libc/include
 libmm-vdec-inc          += bionic/libstdc++/include

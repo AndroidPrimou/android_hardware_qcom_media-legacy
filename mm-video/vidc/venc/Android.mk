@@ -60,6 +60,7 @@ ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),legacy)
 else
 	DISPLAY := display
 endif
+endif
 
 libmm-venc-inc      := bionic/libc/include
 libmm-venc-inc      += bionic/libstdc++/include
@@ -109,6 +110,7 @@ ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),legacy)
 else
 	DISPLAY := display
 endif
+endif
 
 mm-venc-test720p-inc            := $(TARGET_OUT_HEADERS)/mm-core
 mm-venc-test720p-inc            += $(LOCAL_PATH)/inc
@@ -146,6 +148,7 @@ ifeq ($(TARGET_QCOM_DISPLAY_VARIANT),legacy)
 	DISPLAY := display-legacy
 else
 	DISPLAY := display
+endif
 endif
 
 venc-test-inc                   += $(LOCAL_PATH)/inc
