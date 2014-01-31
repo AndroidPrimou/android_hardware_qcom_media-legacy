@@ -25,5 +25,7 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_SHARED_LIBRARIES	:= liblog libdl
 
+LOCAL_GCC := true
+
 LOCAL_LDLIBS +=
 include $(BUILD_SHARED_LIBRARY)

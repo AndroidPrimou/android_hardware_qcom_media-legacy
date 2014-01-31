@@ -80,6 +80,7 @@ LOCAL_MODULE                    := libOmxVenc
 LOCAL_MODULE_TAGS               := optional
 LOCAL_CFLAGS                    := $(libmm-venc-def)
 LOCAL_C_INCLUDES                := $(libmm-venc-inc)
+LOCAL_GCC                       := true
 
 LOCAL_PRELINK_MODULE      := false
 LOCAL_SHARED_LIBRARIES    := liblog libutils libbinder libcutils
@@ -132,6 +133,7 @@ LOCAL_SRC_FILES                 := test/venc_test.cpp
 LOCAL_SRC_FILES                 += test/camera_test.cpp
 LOCAL_SRC_FILES                 += test/venc_util.c
 LOCAL_SRC_FILES                 += test/fb_test.c
+LOCAL_GCC                       := true
 
 LOCAL_ADDITIONAL_DEPENDENCIES   := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
@@ -166,6 +168,7 @@ LOCAL_PRELINK_MODULE            := false
 
 LOCAL_SRC_FILES                 := test/video_encoder_test.c
 LOCAL_SRC_FILES                 += test/queue.c
+LOCAL_GCC                       := true
 
 LOCAL_ADDITIONAL_DEPENDENCIES   := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 

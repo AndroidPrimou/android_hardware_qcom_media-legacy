@@ -29,4 +29,6 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE := libc2dcolorconvert
 
+LOCAL_GCC := true
+
 include $(BUILD_SHARED_LIBRARY)

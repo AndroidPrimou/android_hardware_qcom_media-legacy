@@ -35,5 +35,7 @@ LOCAL_SHARED_LIBRARIES :=       \
 
 LOCAL_MODULE := libstagefrighthw
 
+LOCAL_GCC := true
+
 include $(BUILD_SHARED_LIBRARY)
 
