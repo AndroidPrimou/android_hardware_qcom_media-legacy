@@ -66,6 +66,8 @@ enum {
     kKeySmoothStreaming      = 'ESmS',  //bool (int32_t)
     kKeyHFR                  = 'hfr ',  // int32_t
     kKeyHSR                  = 'hsr ',  // int32_t
+
+    kKeySampleBits        = 'sbit', // int32_t (audio sample bit-width)
 };
 
 #if 0
