@@ -72,6 +72,8 @@ enum {
     kKeyMaxFrmSize        = 'mafs', //int32_t
     kKeyMd5Sum            = 'md5s', //cstring
     kKeyHSR               = 'hsr ',  // int32_t
+
+    kKeySampleBits        = 'sbit', // int32_t (audio sample bit-width)
 };
 
 #if 0
