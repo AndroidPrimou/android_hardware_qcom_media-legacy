@@ -48,25 +48,19 @@ libmm-venc-def += -D_ANDROID_ICS_
 
 include $(CLEAR_VARS)
 
-ifneq ($(TARGET_QCOM_DISPLAY_VARIANT),)
-PLATFORM := .
-else
-PLATFORM := $(TARGET_BOARD_PLATFORM)
-endif
-
 libmm-venc-inc      := bionic/libc/include
 libmm-venc-inc      += bionic/libstdc++/include
 libmm-venc-inc      += $(LOCAL_PATH)/inc
 libmm-venc-inc      += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 libmm-venc-inc      += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-venc-inc      += hardware/qcom/media-legacy/mm-core/inc
-libmm-venc-inc      += hardware/qcom/media-legacy/libstagefrighthw
-libmm-venc-inc      += $(call project-path-for,qcom-display)/$(PLATFORM)/libgralloc
+libmm-venc-inc      += $(call project-path-for,qcom-media)/$(TARGET_BOARD_PLATFORM)/mm-core/inc
+libmm-venc-inc      += $(call project-path-for,qcom-media)/$(TARGET_BOARD_PLATFORM)/libstagefrighthw
+libmm-venc-inc      += $(call project-path-for,qcom-display)/$(TARGET_BOARD_PLATFORM)/libgralloc
 libmm-venc-inc      += hardware/libhardware/include/hardware/
 libmm-venc-inc      += frameworks/native/include/media/hardware
 libmm-venc-inc      += frameworks/native/include/media/openmax
-libmm-venc-inc      += hardware/qcom/media-legacy/libc2dcolorconvert
-libmm-venc-inc      += $(call project-path-for,qcom-display)/$(PLATFORM)/libcopybit
+libmm-venc-inc      += $(call project-path-for,qcom-media)/$(TARGET_BOARD_PLATFORM)/libc2dcolorconvert
+libmm-venc-inc      += $(call project-path-for,qcom-display)/$(TARGET_BOARD_PLATFORM)/libcopybit
 libmm-venc-inc      += frameworks/av/include/media/stagefright
 
 
