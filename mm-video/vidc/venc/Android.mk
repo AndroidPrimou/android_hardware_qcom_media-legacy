@@ -53,14 +53,14 @@ libmm-venc-inc      += bionic/libstdc++/include
 libmm-venc-inc      += $(LOCAL_PATH)/inc
 libmm-venc-inc      += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 libmm-venc-inc      += $(OMX_VIDEO_PATH)/vidc/common/inc
-libmm-venc-inc      += $(call project-path-for,qcom-media)/$(TARGET_BOARD_PLATFORM)/mm-core/inc
-libmm-venc-inc      += $(call project-path-for,qcom-media)/$(TARGET_BOARD_PLATFORM)/libstagefrighthw
-libmm-venc-inc      += $(call project-path-for,qcom-display)/$(TARGET_BOARD_PLATFORM)/libgralloc
+libmm-venc-inc      += $(call project-path-for,qcom-media)/mm-core/inc
+libmm-venc-inc      += $(call project-path-for,qcom-media)/libstagefrighthw
+libmm-venc-inc      += $(call project-path-for,qcom-display)/libgralloc
 libmm-venc-inc      += hardware/libhardware/include/hardware/
 libmm-venc-inc      += frameworks/native/include/media/hardware
 libmm-venc-inc      += frameworks/native/include/media/openmax
-libmm-venc-inc      += $(call project-path-for,qcom-media)/$(TARGET_BOARD_PLATFORM)/libc2dcolorconvert
-libmm-venc-inc      += $(call project-path-for,qcom-display)/$(TARGET_BOARD_PLATFORM)/libcopybit
+libmm-venc-inc      += $(call project-path-for,qcom-media)/libc2dcolorconvert
+libmm-venc-inc      += $(call project-path-for,qcom-display)/libcopybit
 libmm-venc-inc      += frameworks/av/include/media/stagefright
 
 
@@ -93,18 +93,12 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-ifneq ($(TARGET_QCOM_DISPLAY_VARIANT),)
-PLATFORM := .
-else
-PLATFORM := $(TARGET_BOARD_PLATFORM)
-endif
-
 mm-venc-test720p-inc            := $(TARGET_OUT_HEADERS)/mm-core
 mm-venc-test720p-inc            += $(LOCAL_PATH)/inc
 mm-venc-test720p-inc            += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 mm-venc-test720p-inc            += $(OMX_VIDEO_PATH)/vidc/common/inc
-mm-venc-test720p-inc            += hardware/qcom/media-legacy/mm-core/inc
-mm-venc-test720p-inc            += $(call project-path-for,qcom-display)/$(PLATFORM)/libgralloc
+mm-venc-test720p-inc            += $(call project-path-for,qcom-media)/mm-core/inc
+mm-venc-test720p-inc            += $(call project-path-for,qcom-display)/libgralloc
 
 LOCAL_MODULE                    := mm-venc-omx-test720p
 LOCAL_MODULE_TAGS               := debug
@@ -133,7 +127,7 @@ venc-test-inc                   += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/in
 LOCAL_MODULE                    := mm-video-encdrv-test
 LOCAL_MODULE_TAGS               := debug
 LOCAL_C_INCLUDES                := $(venc-test-inc)
-LOCAL_C_INCLUDES                += hardware/qcom/media-legacy/mm-core/inc
+LOCAL_C_INCLUDES                += $(call project-path-for,qcom-media)/mm-core/inc
 LOCAL_ADDITIONAL_DEPENDENCIES   := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 LOCAL_PRELINK_MODULE            := false
 
