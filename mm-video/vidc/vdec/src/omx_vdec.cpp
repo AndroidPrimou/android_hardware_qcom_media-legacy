@@ -4145,7 +4145,7 @@ OMX_ERRORTYPE  omx_vdec::set_config(OMX_IN OMX_HANDLETYPE      hComp,
 
   DEBUG_PRINT_LOW("Set Config Called");
 
-  switch(configIndex)
+  switch((unsigned long)configIndex)
   {
     case OMX_IndexVendorVideoExtraData:
     {
@@ -7366,13 +7366,13 @@ int omx_vdec::async_message_process (void *context, void* message)
            vdec_msg->msgdata.output_frame.aspect_ratio_info;
 
         if (omx->output_use_buffer) {
-          DEBUG_PRINT_LOW("FBD: memcpy(%p, %p, %d)", omxhdr->pBuffer,
-            vdec_msg->msgdata.output_frame.bufferaddr +
-            vdec_msg->msgdata.output_frame.offset,
+          DEBUG_PRINT_LOW("FBD: memcpy(%p, 0x%x, %d)", omxhdr->pBuffer,
+            ((unsigned long)vdec_msg->msgdata.output_frame.bufferaddr +
+             (unsigned long)vdec_msg->msgdata.output_frame.offset),
             vdec_msg->msgdata.output_frame.len);
-          memcpy ( omxhdr->pBuffer,
-                   (vdec_msg->msgdata.output_frame.bufferaddr +
-                    vdec_msg->msgdata.output_frame.offset),
+          memcpy ( omxhdr->pBuffer, (void *)
+                   ((unsigned long)vdec_msg->msgdata.output_frame.bufferaddr +
+                    (unsigned long)vdec_msg->msgdata.output_frame.offset),
                     vdec_msg->msgdata.output_frame.len );
         }
       }
